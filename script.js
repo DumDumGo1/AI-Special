@@ -1,524 +1,340 @@
 
-/* =====================================
-   THE SECRET GARDEN
-   INTERACTIVE JAVASCRIPT
-===================================== */
-
-// INTRO
+// HOTEL IMPOSSIBLE
+// The hotel has a few secrets...
 
 const intro = document.getElementById("intro");
-const enterButton = document.getElementById("enterGarden");
+const hotel = document.getElementById("hotel");
+const modal = document.getElementById("modal");
+const secretMessage = document.getElementById("secretMessage");
 
-enterButton.addEventListener("click", () => {
-    intro.classList.add("hidden");
-    showSecret("Welcome to your secret garden. 🌿");
+let symbolsFound = 0;
+let brandClicks = 0;
+let pageNumber = 0;
+let soundOn = false;
+
+// INTRO
+document.getElementById("enterButton").addEventListener("click", () => {
+  intro.classList.add("fade-out");
+  hotel.classList.remove("hidden");
+
+  setTimeout(() => {
+    intro.style.display = "none";
+  }, 1100);
 });
 
+// CUSTOM CURSOR
+const cursor = document.querySelector(".cursor-key");
 
-// SECRET POPUP
+document.addEventListener("mousemove", (event) => {
+  cursor.style.left = event.clientX + "px";
+  cursor.style.top = event.clientY + "px";
+});
 
-const secretPopup = document.getElementById("secretPopup");
-const secretText = document.getElementById("secretText");
-const closeSecret = document.getElementById("closeSecret");
+// NAVIGATION
+document.querySelectorAll(".key-card").forEach((card) => {
+  card.addEventListener("click", () => {
+    const target = document.getElementById(card.dataset.target);
 
-function showSecret(message) {
-    secretText.textContent = message;
-    secretPopup.classList.add("show");
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  });
+});
+
+// RECEPTION BUTTON
+document.getElementById("receptionButton").addEventListener("click", () => {
+  showMessage(
+    "THE RECEPTIONIST",
+    "Good evening. We have been expecting you. Your room is ready. We just cannot remember which one."
+  );
+});
+
+// MODAL SYSTEM
+function openModal(eyebrow, symbol, title, text, extra = "") {
+  document.getElementById("modalEyebrow").textContent = eyebrow;
+  document.getElementById("modalSymbol").textContent = symbol;
+  document.getElementById("modalTitle").textContent = title;
+  document.getElementById("modalText").textContent = text;
+  document.getElementById("modalExtra").textContent = extra;
+
+  modal.classList.add("show");
 }
 
-closeSecret.addEventListener("click", () => {
-    secretPopup.classList.remove("show");
-});
-
-
-// ARCHIVE FILTER
-
-const filterButtons = document.querySelectorAll(".filter");
-const plantCards = document.querySelectorAll(".plant-card");
-
-filterButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        filterButtons.forEach(btn => btn.classList.remove("active"));
-        button.classList.add("active");
-
-        const filter = button.dataset.filter;
-
-        plantCards.forEach(card => {
-
-            const category = card.dataset.category;
-
-            if (filter === "all" || filter === category) {
-                card.classList.remove("hide");
-            } else {
-                card.classList.add("hide");
-            }
-
-        });
-
-    });
-
-});
-
-
-// PLANT DETAIL WINDOWS
-
-const specimenModal = document.getElementById("specimenModal");
-
-const modalName = document.getElementById("modalName");
-const modalLatin = document.getElementById("modalLatin");
-const modalDescription = document.getElementById("modalDescription");
-
-const detailButtons = document.querySelectorAll(".details-button");
-
-detailButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        modalName.textContent = button.dataset.name;
-        modalLatin.textContent = button.dataset.latin;
-        modalDescription.textContent = button.dataset.description;
-
-        specimenModal.classList.add("show");
-
-    });
-
-});
-
-document.getElementById("closeSpecimen").addEventListener("click", () => {
-    specimenModal.classList.remove("show");
-});
-
-specimenModal.addEventListener("click", event => {
-
-    if (event.target === specimenModal) {
-        specimenModal.classList.remove("show");
-    }
-
-});
-
-
-// DIGITAL GREENHOUSE
-
-const garden = document.getElementById("garden");
-const emptyMessage = document.getElementById("emptyMessage");
-const plantCounter = document.getElementById("plantCounter");
-
-const seedButtons = document.querySelectorAll(".seed-button");
-
-let plantedPlants = 0;
-const maxPlants = 8;
-
-seedButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        if (plantedPlants >= maxPlants) {
-            showSecret("Your greenhouse is full! 🌿");
-            return;
-        }
-
-        const seed = button.dataset.seed;
-
-        const newPlant = document.createElement("span");
-
-        newPlant.className = "garden-plant";
-        newPlant.textContent = seed;
-        newPlant.title = "Click to remove this plant";
-
-        newPlant.addEventListener("click", () => {
-
-            newPlant.remove();
-
-            plantedPlants--;
-
-            updateGarden();
-
-            showSecret("One plant has returned to the earth. 🍃");
-
-        });
-
-        garden.appendChild(newPlant);
-
-        plantedPlants++;
-
-        updateGarden();
-
-        if (plantedPlants === 1) {
-            showSecret("Your first plant has grown! 🌱");
-        }
-
-    });
-
-});
-
-function updateGarden() {
-
-    plantCounter.textContent = plantedPlants + " / " + maxPlants + " PLANTS";
-
-    if (plantedPlants === 0) {
-        emptyMessage.style.display = "block";
-    } else {
-        emptyMessage.style.display = "none";
-    }
-
+function closeModal() {
+  modal.classList.remove("show");
 }
 
+document.getElementById("modalClose").addEventListener("click", closeModal);
+document.getElementById("modalAction").addEventListener("click", closeModal);
 
-// QUIZ
+modal.addEventListener("click", (event) => {
+  if (event.target === modal) closeModal();
+});
 
-const questions = [
+// ROOM INFORMATION
+const rooms = {
+  "13": {
+    symbol: "☾",
+    title: "The Midnight Room",
+    text: "Welcome to room 013. The clock has stopped at 11:59 PM. It has been that way for 103 years.",
+    extra: "ROOM RULE: Never ask what happens at midnight."
+  },
+  "27": {
+    symbol: "❄",
+    title: "The Frozen Summer",
+    text: "Outside, it is always summer. Inside, snowflakes float upwards and the fireplace burns with blue flames.",
+    extra: "ROOM RULE: Do not open the window."
+  },
+  "42": {
+    symbol: "⌛",
+    title: "The Lost Afternoon",
+    text: "This room contains all the afternoons people have forgotten. You may hear someone laughing in the next room.",
+    extra: "ROOM RULE: Do not take anything home."
+  },
+  "66": {
+    symbol: "♧",
+    title: "The Whispering Garden",
+    text: "A garden grows behind the walls. The flowers whisper the names of everyone who has ever stayed here.",
+    extra: "ROOM RULE: The roses are listening."
+  }
+};
 
-    {
-        question: "Which plant is famous for its enormous flower?",
-        answers: [
-            "Rafflesia arnoldii",
-            "Sunflower",
-            "Tulip",
-            "Lavender"
-        ],
-        correct: 0,
-        explanation: "Correct! Rafflesia can produce flowers around one metre wide."
-    },
+document.querySelectorAll("[data-open-room]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const number = button.dataset.openRoom;
+    const room = rooms[number];
 
-    {
-        question: "Which plant can close its leaves when touched?",
-        answers: [
-            "Baobab",
-            "Mimosa pudica",
-            "Oak tree",
-            "Rose"
-        ],
-        correct: 1,
-        explanation: "Exactly! Mimosa pudica is also called the sensitive plant."
-    },
+    openModal(
+      "ROOM Nº " + number,
+      room.symbol,
+      room.title,
+      room.text,
+      room.extra
+    );
 
-    {
-        question: "What is a carnivorous plant?",
-        answers: [
-            "A plant that only grows at night",
-            "A plant that eats soil",
-            "A plant that catches and digests animals",
-            "A plant without roots"
-        ],
-        correct: 2,
-        explanation: "Well done! Carnivorous plants obtain nutrients from captured prey."
-    },
+    discoverSymbol();
+  });
+});
 
-    {
-        question: "When does Queen of the Night usually bloom?",
-        answers: [
-            "In the middle of winter",
-            "At night",
-            "Only in the morning",
-            "During a storm"
-        ],
-        correct: 1,
-        explanation: "Yes! Its beautiful flowers usually open after sunset."
-    },
+// ELEVATOR
+const floorMessages = {
+  "1": "The ordinary floor. Almost suspiciously ordinary.",
+  "2": "A corridor filled with paintings. Their eyes follow you.",
+  "7": "A library where every book tells the future.",
+  "13": "The lights flicker. Someone has already pressed this button.",
+  "27": "A beach at night. There is no sea, only stars.",
+  "99": "The roof. But the sky looks like a ceiling.",
+  "0": "The elevator is going down. The building has no basement.",
+  "000": "THE SECRET FLOOR. You were not supposed to find this."
+};
 
-    {
-        question: "What can a cactus store in its stem?",
-        answers: [
-            "Sand",
-            "Air",
-            "Water",
-            "Seeds only"
-        ],
-        correct: 2,
-        explanation: "Correct! Many cacti store water in their thick stems."
-    },
+document.querySelectorAll("[data-floor]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const floor = button.dataset.floor;
+    const display = document.getElementById("floorDisplay");
+    const result = document.getElementById("elevatorResult");
 
-    {
-        question: "Which tree is famous for its enormous trunk?",
-        answers: [
-            "Baobab",
-            "Birch",
-            "Apple tree",
-            "Pine"
-        ],
-        correct: 0,
-        explanation: "Amazing! Baobabs are known for their huge trunks."
-    }
+    display.textContent = "•••";
+    result.textContent = "The elevator is moving...";
 
+    setTimeout(() => {
+      display.textContent = floor === "000" ? "???": floor.padStart(2, "0");
+      result.textContent = floorMessages[floor];
+
+      if (floor === "000") {
+        setTimeout(() => {
+          openModal(
+            "RESTRICTED FLOOR",
+            "⚿",
+            "Welcome to Room 000",
+            "There is no room here. Only a door. And behind that door, the hotel itself.",
+            "YOU HAVE FOUND THE FIRST CLUE."
+          );
+          discoverSymbol();
+        }, 600);
+      }
+
+      if (floor === "13") {
+        discoverSymbol();
+      }
+    }, 1000);
+  });
+});
+
+// GUESTBOOK PAGE TURN
+const guestEntries = [
+  [
+    ["22 JANUARY 1901", "I have been here for three days. My watch says it is 1901. The newspaper says 1984.", "— E. W."],
+    ["UNKNOWN DATE", "The receptionist has not aged a single day. I think she knows.", "— MYSTERY GUEST"],
+    ["17 AUGUST 2003", "I found a key under my pillow. It had no number. I wish I had never picked it up.", "— L. R."]
+  ],
+  [
+    ["04 APRIL 1933", "There is a staircase behind the wallpaper. I heard music coming from below.", "— MR. H."],
+    ["UNKNOWN DATE", "Room 27 has a second door. I opened it. It led to the same room.", "— A GUEST"],
+    ["31 DECEMBER 1897", "Tonight the hotel opens. Nobody has told me what year it is.", "— THE FIRST GUEST"]
+  ],
+  [
+    ["NO DATE", "If you are reading this, the hotel has noticed you.", "— ???"],
+    ["NO DATE", "Do not trust the floor numbers. They change when you are asleep.", "— ???"],
+    ["NO DATE", "I think I am writing this before you arrive.", "— ???"]
+  ]
 ];
 
-let currentQuestion = 0;
-let score = 0;
-let answered = false;
+document.getElementById("nextEntry").addEventListener("click", () => {
+  pageNumber = (pageNumber + 1) % guestEntries.length;
 
-const quizModal = document.getElementById("quizModal");
-const quizQuestion = document.getElementById("quizQuestion");
-const quizAnswers = document.getElementById("quizAnswers");
-const quizProgress = document.getElementById("quizProgress");
-const quizFeedback = document.getElementById("quizFeedback");
-const nextQuestion = document.getElementById("nextQuestion");
+  const entries = document.querySelectorAll(".guest-entry");
 
-document.getElementById("startQuiz").addEventListener("click", () => {
+  entries.forEach((entry, index) => {
+    const data = guestEntries[pageNumber][index];
 
-    currentQuestion = 0;
-    score = 0;
+    entry.querySelector("span").textContent = data[0];
+    entry.querySelector("p").textContent = '"' + data[1] + '"';
+    entry.querySelector("small").textContent = data[2];
+  });
 
-    quizModal.classList.add("show");
+  const button = document.getElementById("nextEntry");
+  button.textContent = pageNumber === 0 ? "TURN THE PAGE →" : "NEXT PAGE →";
 
-    displayQuestion();
-
+  discoverSymbol();
 });
 
-document.getElementById("closeQuiz").addEventListener("click", () => {
-    quizModal.classList.remove("show");
-});
+// SECRET SYMBOLS
+function discoverSymbol() {
+  if (symbolsFound >= 5) return;
 
-quizModal.addEventListener("click", event => {
+  symbolsFound++;
 
-    if (event.target === quizModal) {
-        quizModal.classList.remove("show");
-    }
+  document.getElementById("symbolCounter").textContent =
+    "HIDDEN SYMBOLS FOUND: " + symbolsFound + " / 5";
 
-});
+  if (symbolsFound === 5) {
+    const archive = document.getElementById("lockedArchive");
 
-function displayQuestion() {
+    archive.classList.remove("locked-item");
+    archive.innerHTML = `
+      <span>ARCHIVE 004 · UNLOCKED</span>
+      <h3>The Hotel Knows</h3>
+      <p>The hotel is not a building. It is a place between moments. It appears to people who are looking for something they have lost.</p>
+      <div class="archive-lock">✦</div>
+    `;
 
-    answered = false;
-
-    const q = questions[currentQuestion];
-
-    quizProgress.textContent =
-        "QUESTION " + (currentQuestion + 1) + " / " + questions.length;
-
-    quizQuestion.textContent = q.question;
-
-    quizAnswers.innerHTML = "";
-
-    quizFeedback.textContent = "";
-
-    nextQuestion.hidden = true;
-
-    q.answers.forEach((answer, index) => {
-
-        const button = document.createElement("button");
-
-        button.className = "answer-button";
-        button.textContent = answer;
-
-        button.addEventListener("click", () => {
-            checkAnswer(index, button);
-        });
-
-        quizAnswers.appendChild(button);
-
-    });
-
+    showMessage(
+      "ARCHIVE UNLOCKED",
+      "You found all five symbols. The hotel has a message for you: You were never just a guest."
+    );
+  }
 }
 
-function checkAnswer(index, selectedButton) {
+// HIDDEN BRAND SECRET
+document.getElementById("brand").addEventListener("click", () => {
+  brandClicks++;
 
-    if (answered) return;
+  if (brandClicks >= 5) {
+    brandClicks = 0;
 
-    answered = true;
+    showMessage(
+      "THE HOTEL REMEMBERS",
+      "You have visited this place before. Perhaps not in this life. Perhaps not in this year."
+    );
 
-    const q = questions[currentQuestion];
+    discoverSymbol();
+  }
+});
 
-    const allAnswers = document.querySelectorAll(".answer-button");
+// SECRET FOOTER BUTTON
+document.getElementById("footerSecret").addEventListener("click", () => {
+  showMessage(
+    "A FINAL NOTE",
+    "There is one more room. It is not in the hotel. It is the hotel."
+  );
+  discoverSymbol();
+});
 
-    allAnswers.forEach((button, i) => {
+// SOUND SWITCH
+document.getElementById("soundButton").addEventListener("click", () => {
+  soundOn = !soundOn;
 
-        button.disabled = true;
+  document.getElementById("soundButton").textContent =
+    soundOn ? "♫ SOUND ON" : "♫ SOUND OFF";
 
-        if (i === q.correct) {
-            button.classList.add("correct");
-        }
+  showMessage(
+    soundOn ? "SOUND ENABLED" : "SOUND DISABLED",
+    soundOn
+      ? "The hotel is still quiet. Background sound is not included yet."
+      : "Silence returns to the hotel."
+  );
+});
 
-    });
-
-    if (index === q.correct) {
-
-        score++;
-
-        quizFeedback.textContent = "✦ " + q.explanation;
-
-    } else {
-
-        selectedButton.classList.add("wrong");
-
-        quizFeedback.textContent =
-            "Not quite! " + q.explanation;
-
-    }
-
-    nextQuestion.hidden = false;
-
-    if (currentQuestion === questions.length - 1) {
-        nextQuestion.textContent = "SEE MY RESULTS ↗";
-    } else {
-        nextQuestion.textContent = "NEXT QUESTION ↗";
-    }
-
+// MESSAGE POPUP
+function showMessage(title, text) {
+  document.querySelector(".secret-message span").textContent = title;
+  document.getElementById("secretText").textContent = text;
+  secretMessage.classList.add("show");
 }
 
-nextQuestion.addEventListener("click", () => {
-
-    currentQuestion++;
-
-    if (currentQuestion < questions.length) {
-
-        displayQuestion();
-
-    } else {
-
-        showResults();
-
-    }
-
+document.getElementById("secretClose").addEventListener("click", () => {
+  secretMessage.classList.remove("show");
 });
 
-function showResults() {
+// EXTRA EASTER EGG: PRESS H
+document.addEventListener("keydown", (event) => {
+  if (event.key.toLowerCase() === "h") {
+    showMessage(
+      "A SECRET MESSAGE",
+      "H stands for Hotel. But perhaps it also stands for something else..."
+    );
+  }
 
-    quizProgress.textContent = "YOUR BOTANICAL RESULTS";
-
-    quizQuestion.textContent =
-        score + " / " + questions.length;
-
-    quizAnswers.innerHTML = "";
-
-    quizFeedback.textContent =
-        score === 6
-        ? "Perfect! You are a true botanical expert. ✨"
-        : score >= 4
-        ? "Wonderful! You know your plants very well. 🌿"
-        : score >= 2
-        ? "A curious explorer! Keep discovering. 🌱"
-        : "Every great botanist starts somewhere. 🌷";
-
-    nextQuestion.textContent = "TRY AGAIN ↗";
-
-    nextQuestion.hidden = false;
-
-    // Restart quiz on next click
-    nextQuestion.onclick = () => {
-
-        currentQuestion = 0;
-        score = 0;
-
-        nextQuestion.onclick = null;
-
-        displayQuestion();
-
-    };
-
-}
-
-
-// SECRET 1: THE MOON BUTTON
-
-document.getElementById("moonButton").addEventListener("click", () => {
-
-    document.body.classList.toggle("moon-mode");
-
-    if (document.body.classList.contains("moon-mode")) {
-
-        showSecret("The garden is now under the moonlight. ☾");
-
-    } else {
-
-        showSecret("Welcome back to the daylight. ☀");
-
-    }
-
+  if (event.key === "Escape") {
+    closeModal();
+    secretMessage.classList.remove("show");
+  }
 });
 
+// THE CLOCK GLITCH
+let clockGlitch = 0;
 
-// SECRET 2: CLICK THE LOGO FIVE TIMES
+document.querySelector(".hero-number").addEventListener("click", () => {
+  clockGlitch++;
 
-let logoClicks = 0;
+  const number = document.querySelector(".hero-number");
 
-document.getElementById("logo").addEventListener("click", event => {
+  if (clockGlitch >= 3) {
+    number.textContent = "YOU ARE HERE";
+    number.style.color = "#e8c987";
 
-    logoClicks++;
+    showMessage(
+      "LOCATION DETECTED",
+      "The hotel has found your location. You are standing in the Grand Lobby."
+    );
 
-    if (logoClicks >= 5) {
-
-        event.preventDefault();
-
-        showSecret("You found the forgotten gardener's secret! ✿");
-
-        logoClicks = 0;
-
-    }
-
+    discoverSymbol();
+  }
 });
 
+// RANDOM HOTEL MESSAGE
+const randomMessages = [
+  "The receptionist says hello. She has been waiting for 126 years.",
+  "A bell rings somewhere upstairs. Nobody is there.",
+  "The hotel lights flicker. Then everything is normal again.",
+  "You hear footsteps in the corridor. They stop when you stop.",
+  "A key has appeared on the reception desk."
+];
 
-// SECRET 3: CLICK THE FEATURE FLOWER
+document.addEventListener("dblclick", (event) => {
+  if (
+    event.target.closest("button") ||
+    event.target.closest(".modal") ||
+    event.target.closest(".secret-message")
+  ) return;
 
-document.querySelector(".feature-symbol").addEventListener("click", () => {
+  if (Math.random() > 0.65) {
+    const message = randomMessages[
+      Math.floor(Math.random() * randomMessages.length)
+    ];
 
-    showSecret("A flower never hurries, yet everything blooms in its own time. 🌸");
-
+    showMessage("A HOTEL OCCURRENCE", message);
+  }
 });
-
-
-// SECRET 4: CLICK THE FOOTER SYMBOL
-
-document.querySelector(".footer-symbol").addEventListener("click", () => {
-
-    showSecret("ARCHIVE 008 UNLOCKED — The garden remembers you. ✧");
-
-});
-
-
-// SPECIAL CURSOR FLOWER
-
-const cursorFlower = document.getElementById("cursorFlower");
-
-document.addEventListener("mousemove", event => {
-
-    cursorFlower.style.left = (event.clientX + 12) + "px";
-    cursorFlower.style.top = (event.clientY + 12) + "px";
-    cursorFlower.style.opacity = "1";
-
-});
-
-document.addEventListener("mouseleave", () => {
-    cursorFlower.style.opacity = "0";
-});
-
-
-// SECRET 5: DOUBLE CLICK THE BACKGROUND
-
-let backgroundClicks = 0;
-
-document.querySelector(".hero-plant").addEventListener("dblclick", () => {
-
-    backgroundClicks++;
-
-    showSecret("A tiny secret is growing somewhere... 🌱");
-
-});
-
-
-// ESCAPE KEY CLOSES WINDOWS
-
-document.addEventListener("keydown", event => {
-
-    if (event.key === "Escape") {
-
-        specimenModal.classList.remove("show");
-        quizModal.classList.remove("show");
-        secretPopup.classList.remove("show");
-
-    }
-
-});
-
-
-// WELCOME MESSAGE IN CONSOLE
-
-console.log("%c✳ THE SECRET GARDEN ✳",
-    "color:#bd9b60;font-size:25px;font-family:serif;");
-
-console.log("%cYou found the hidden botanical laboratory.",
-    "color:#a5ad8c;font-size:13px;");
-
-console.log("Try clicking the logo five times...");

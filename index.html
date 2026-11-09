@@ -2,474 +2,297 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Secret Garden | Botanical Archive</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Impossible – Est. 1897</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-    <div class="grain"></div>
-    <div class="ambient ambient-one"></div>
-    <div class="ambient ambient-two"></div>
+  <div class="grain"></div>
+  <div class="cursor-key">⚿</div>
 
-    <!-- INTRO -->
-    <div class="intro" id="intro">
-        <div class="intro-content">
-            <span>BOTANICAL ARCHIVE · EST. 1897</span>
-            <div class="intro-symbol">✳</div>
-            <h1>THE SECRET<br>GARDEN</h1>
-            <p>Somewhere between science and magic.</p>
-            <button id="enterGarden">ENTER THE GARDEN ↗</button>
-        </div>
-    </div>
+  <!-- INTRO -->
+  <div class="intro" id="intro">
+    <div class="intro-stars">✦ &nbsp; ✧ &nbsp; ✦</div>
+    <p class="eyebrow">AN UNUSUAL PLACE TO STAY</p>
+    <h1>HOTEL<br><span>IMPOSSIBLE</span></h1>
+    <div class="intro-line"></div>
+    <p class="intro-small">Somewhere between yesterday and never.</p>
+    <button class="enter-button" id="enterButton">ENTER THE HOTEL <span>→</span></button>
+    <p class="intro-foot">ESTABLISHED IN 1897 · LOCATION UNKNOWN</p>
+  </div>
 
-    <!-- NAVIGATION -->
+  <!-- MAIN HOTEL -->
+  <main id="hotel" class="hotel hidden">
+
     <header class="topbar">
-        <a href="#home" class="logo" id="logo">
-            <span class="logo-icon">✳</span>
-            <span>THE SECRET GARDEN</span>
-        </a>
-
-        <nav>
-            <a href="#home">HOME</a>
-            <a href="#archive">ARCHIVE</a>
-            <a href="#greenhouse">GREENHOUSE</a>
-            <a href="#fieldnotes">FIELD NOTES</a>
-        </nav>
-
-        <button class="moon-button" id="moonButton" title="Geheime Funktion">☾</button>
+      <div class="brand" id="brand">
+        <span class="brand-symbol">✦</span>
+        <div>
+          <div class="brand-name">HOTEL IMPOSSIBLE</div>
+          <div class="brand-sub">A PLACE OUT OF TIME</div>
+        </div>
+      </div>
+      <div class="top-status">
+        <span class="live-dot"></span>
+        <span>RECEPTION OPEN</span>
+      </div>
+      <button class="sound-button" id="soundButton">♫ SOUND OFF</button>
     </header>
 
-    <!-- HERO -->
-    <main>
+    <section class="hero">
+      <div class="hero-left">
+        <p class="eyebrow">WELCOME, DEAR GUEST</p>
+        <h2>You have arrived<br>at <em>the impossible.</em></h2>
+        <p class="hero-copy">
+          A hotel with no address. A building with no end.
+          A thousand rooms, and not one of them ordinary.
+        </p>
+        <button class="gold-button" id="receptionButton">VISIT RECEPTION <span>↗</span></button>
+      </div>
 
-        <section class="hero" id="home">
-
-            <div class="hero-left">
-                <div class="eyebrow">
-                    <span class="live-dot"></span>
-                    PRIVATE BOTANICAL COLLECTION
-                </div>
-
-                <h1>
-                    Where<br>
-                    <span>nature</span><br>
-                    keeps its<br>
-                    secrets.
-                </h1>
-
-                <p class="hero-description">
-                    A living archive of extraordinary plants,
-                    forgotten botanical discoveries and the
-                    beautiful mysteries of the natural world.
-                </p>
-
-                <div class="hero-buttons">
-                    <a href="#archive" class="primary-button">
-                        EXPLORE THE ARCHIVE ↗
-                    </a>
-                    <a href="#greenhouse" class="text-button">
-                        VISIT GREENHOUSE
-                    </a>
-                </div>
-
-                <div class="hero-bottom">
-                    <span>VOL. I — THE LIVING COLLECTION</span>
-                    <span>51° 30' N · 00° 07' W</span>
-                </div>
-            </div>
-
-            <div class="hero-right">
-                <div class="hero-frame">
-                    <div class="frame-label">FIG. 001 — THE UNKNOWN</div>
-
-                    <div class="hero-plant">
-                        <div class="plant-orbit orbit-one"></div>
-                        <div class="plant-orbit orbit-two"></div>
-                        <div class="plant-illustration">🌿</div>
-                        <span class="floating-leaf leaf-one">✦</span>
-                        <span class="floating-leaf leaf-two">❋</span>
-                        <span class="floating-leaf leaf-three">✧</span>
-                    </div>
-
-                    <div class="frame-bottom">
-                        <span>SPECIMEN NO. 001</span>
-                        <span>NOT YET IDENTIFIED</span>
-                    </div>
-                </div>
-
-                <div class="side-note">
-                    <span>01 / 04</span>
-                    <span>THE ART OF DISCOVERY</span>
-                </div>
-            </div>
-
-            <div class="vertical-text">GROW · DISCOVER · WONDER</div>
-
-        </section>
-
-        <!-- MARQUEE -->
-        <div class="marquee">
-            <div class="marquee-track">
-                <span>✳ EVERY LEAF HAS A STORY</span>
-                <span>✳ DISCOVER THE UNDISCOVERED</span>
-                <span>✳ NATURE IS NEVER ORDINARY</span>
-                <span>✳ EVERY LEAF HAS A STORY</span>
-                <span>✳ DISCOVER THE UNDISCOVERED</span>
-            </div>
+      <div class="hero-art">
+        <div class="art-halo"></div>
+        <div class="art-frame">
+          <div class="art-ceiling">✧ &nbsp; ✦ &nbsp; ✧</div>
+          <div class="art-window">
+            <div class="window-moon"></div>
+            <div class="window-stars">· &nbsp; ✦ &nbsp; ·</div>
+          </div>
+          <div class="art-stairs">
+            <div class="stair stair-one"></div>
+            <div class="stair stair-two"></div>
+            <div class="stair stair-three"></div>
+            <div class="stair stair-four"></div>
+            <div class="stair stair-five"></div>
+          </div>
+          <div class="art-lamp">♜</div>
+          <div class="art-floor"></div>
+          <div class="art-caption">THE GRAND LOBBY · 1897</div>
         </div>
+        <div class="floating-key">⚿</div>
+      </div>
 
-        <!-- ARCHIVE -->
-        <section class="archive section" id="archive">
+      <div class="hero-number">NO. 000</div>
+    </section>
 
-            <div class="section-heading">
-                <div>
-                    <span class="eyebrow">THE COLLECTION · 001—006</span>
-                    <h2>The botanical<br><i>archive.</i></h2>
-                </div>
+    <div class="ticker">
+      <div class="ticker-track">
+        <span>PLEASE MIND THE IMPOSSIBLE</span><b>✦</b>
+        <span>CHECK-IN IS FOREVER</span><b>✦</b>
+        <span>ALL ROOMS ARE OCCUPIED</span><b>✦</b>
+        <span>PLEASE MIND THE IMPOSSIBLE</span><b>✦</b>
+        <span>CHECK-IN IS FOREVER</span><b>✦</b>
+      </div>
+    </div>
 
-                <p>
-                    A collection of remarkable plants.
-                    Each specimen has its own personality,
-                    history and extraordinary abilities.
-                </p>
-            </div>
+    <!-- KEY NAVIGATION -->
+    <section class="key-navigation" id="navigation">
+      <div class="section-heading">
+        <p class="eyebrow">THE HOTEL DIRECTORY</p>
+        <h2>Where would you like to go?</h2>
+        <p>Choose a key. But choose carefully.</p>
+      </div>
 
-            <div class="filter-bar">
-                <button class="filter active" data-filter="all">ALL SPECIMENS</button>
-                <button class="filter" data-filter="flower">FLOWERS</button>
-                <button class="filter" data-filter="rare">RARE PLANTS</button>
-                <button class="filter" data-filter="tree">TREES</button>
-            </div>
+      <div class="key-board">
+        <button class="key-card" data-target="rooms">
+          <span class="key-icon">🗝️</span>
+          <span class="key-number">01</span>
+          <strong>THE ROOMS</strong>
+          <small>Explore the impossible</small>
+        </button>
+        <button class="key-card" data-target="elevator">
+          <span class="key-icon">⚿</span>
+          <span class="key-number">02</span>
+          <strong>THE ELEVATOR</strong>
+          <small>Choose your floor</small>
+        </button>
+        <button class="key-card" data-target="guestbook">
+          <span class="key-icon">📖</span>
+          <span class="key-number">03</span>
+          <strong>GUEST BOOK</strong>
+          <small>Read their stories</small>
+        </button>
+        <button class="key-card" data-target="secrets">
+          <span class="key-icon">✧</span>
+          <span class="key-number">04</span>
+          <strong>THE ARCHIVE</strong>
+          <small>Things best forgotten</small>
+        </button>
+      </div>
+    </section>
 
-            <div class="plant-grid">
+    <!-- ROOMS -->
+    <section class="rooms-section" id="rooms">
+      <div class="section-heading">
+        <p class="eyebrow">FLOORS 01 — 99</p>
+        <h2>The rooms <em>of wonder.</em></h2>
+        <p>Every door has a story. Some stories have no ending.</p>
+      </div>
 
-                <article class="plant-card" data-category="flower">
-                    <div class="card-image flower-image">
-                        <span class="specimen-number">NO. 001</span>
-                        <span class="plant-emoji">🌺</span>
-                        <span class="image-tag">TROPICAL</span>
-                    </div>
-                    <div class="card-info">
-                        <span class="latin">Rafflesia arnoldii</span>
-                        <h3>The Giant Bloom</h3>
-                        <p>
-                            One of the world's largest individual flowers.
-                            It can grow to around one metre across.
-                        </p>
-                        <button class="details-button"
-                            data-name="The Giant Bloom"
-                            data-latin="Rafflesia arnoldii"
-                            data-description="The Rafflesia is famous for its enormous flower. It grows as a parasite on vines and has no ordinary leaves, stems or roots. Its flower can reach around one metre in diameter.">
-                            DISCOVER SPECIMEN ↗
-                        </button>
-                    </div>
-                </article>
+      <div class="room-grid">
+        <article class="room room-red" data-room="13">
+          <div class="room-top"><span>ROOM Nº 013</span><span>✦</span></div>
+          <div class="room-symbol">☾</div>
+          <h3>The Midnight Room</h3>
+          <p>It is always 11:59 PM in here.</p>
+          <button class="room-open" data-open-room="13">UNLOCK ROOM ↗</button>
+        </article>
 
-                <article class="plant-card" data-category="rare">
-                    <div class="card-image rare-image">
-                        <span class="specimen-number">NO. 002</span>
-                        <span class="plant-emoji">🌿</span>
-                        <span class="image-tag">CARNIVOROUS</span>
-                    </div>
-                    <div class="card-info">
-                        <span class="latin">Nepenthes</span>
-                        <h3>The Pitcher Plant</h3>
-                        <p>
-                            A fascinating carnivorous plant with
-                            specially shaped pitcher traps.
-                        </p>
-                        <button class="details-button"
-                            data-name="The Pitcher Plant"
-                            data-latin="Nepenthes"
-                            data-description="Nepenthes plants produce modified leaves shaped like pitchers. Their slippery rims and digestive liquid help them capture and digest insects and other small animals.">
-                            DISCOVER SPECIMEN ↗
-                        </button>
-                    </div>
-                </article>
+        <article class="room room-blue" data-room="27">
+          <div class="room-top"><span>ROOM Nº 027</span><span>✧</span></div>
+          <div class="room-symbol">❄</div>
+          <h3>The Frozen Summer</h3>
+          <p>Snow falls upwards. The sun never sets.</p>
+          <button class="room-open" data-open-room="27">UNLOCK ROOM ↗</button>
+        </article>
 
-                <article class="plant-card" data-category="flower">
-                    <div class="card-image night-image">
-                        <span class="specimen-number">NO. 003</span>
-                        <span class="plant-emoji">🌙</span>
-                        <span class="image-tag">NIGHT BLOOMING</span>
-                    </div>
-                    <div class="card-info">
-                        <span class="latin">Epiphyllum oxypetalum</span>
-                        <h3>Queen of the Night</h3>
-                        <p>
-                            A spectacular cactus flower that opens
-                            at night and closes again by morning.
-                        </p>
-                        <button class="details-button"
-                            data-name="Queen of the Night"
-                            data-latin="Epiphyllum oxypetalum"
-                            data-description="This cactus produces large, fragrant white flowers that usually open after sunset. They are often short-lived and close by the following morning.">
-                            DISCOVER SPECIMEN ↗
-                        </button>
-                    </div>
-                </article>
+        <article class="room room-gold" data-room="42">
+          <div class="room-top"><span>ROOM Nº 042</span><span>✦</span></div>
+          <div class="room-symbol">⌛</div>
+          <h3>The Lost Afternoon</h3>
+          <p>A place for moments that disappeared.</p>
+          <button class="room-open" data-open-room="42">UNLOCK ROOM ↗</button>
+        </article>
 
-                <article class="plant-card" data-category="tree">
-                    <div class="card-image tree-image">
-                        <span class="specimen-number">NO. 004</span>
-                        <span class="plant-emoji">🌳</span>
-                        <span class="image-tag">ANCIENT</span>
-                    </div>
-                    <div class="card-info">
-                        <span class="latin">Adansonia</span>
-                        <h3>The Baobab</h3>
-                        <p>
-                            A remarkable tree with an enormous trunk
-                            that can store large amounts of water.
-                        </p>
-                        <button class="details-button"
-                            data-name="The Baobab"
-                            data-latin="Adansonia"
-                            data-description="Baobab trees are iconic African trees with thick trunks. Some species can live for thousands of years. Their trunks can store water, helping them survive dry periods.">
-                            DISCOVER SPECIMEN ↗
-                        </button>
-                    </div>
-                </article>
+        <article class="room room-green" data-room="66">
+          <div class="room-top"><span>ROOM Nº 066</span><span>✧</span></div>
+          <div class="room-symbol">♧</div>
+          <h3>The Whispering Garden</h3>
+          <p>The flowers remember every guest.</p>
+          <button class="room-open" data-open-room="66">UNLOCK ROOM ↗</button>
+        </article>
+      </div>
+      <p class="room-warning">⚠ Room 000 is not listed in the directory.</p>
+    </section>
 
-                <article class="plant-card" data-category="rare">
-                    <div class="card-image blue-image">
-                        <span class="specimen-number">NO. 005</span>
-                        <span class="plant-emoji">🪷</span>
-                        <span class="image-tag">AQUATIC</span>
-                    </div>
-                    <div class="card-info">
-                        <span class="latin">Victoria amazonica</span>
-                        <h3>The Giant Water Lily</h3>
-                        <p>
-                            Its enormous floating leaves can
-                            reach several metres in diameter.
-                        </p>
-                        <button class="details-button"
-                            data-name="The Giant Water Lily"
-                            data-latin="Victoria amazonica"
-                            data-description="This giant water lily grows in Amazonian waters. Its circular floating leaves can become more than two metres wide, with raised edges and a strong supporting structure underneath.">
-                            DISCOVER SPECIMEN ↗
-                        </button>
-                    </div>
-                </article>
+    <!-- ELEVATOR -->
+    <section class="elevator-section" id="elevator">
+      <div class="elevator-copy">
+        <p class="eyebrow">THE OLD ELEVATOR</p>
+        <h2>Going <em>somewhere?</em></h2>
+        <p>There are more floors than the building has space for. Select a floor to find out where it leads.</p>
+        <p class="tiny-note">PLEASE DO NOT PRESS ALL BUTTONS AT ONCE.</p>
+      </div>
 
-                <article class="plant-card" data-category="flower">
-                    <div class="card-image red-image">
-                        <span class="specimen-number">NO. 006</span>
-                        <span class="plant-emoji">🌷</span>
-                        <span class="image-tag">UNUSUAL</span>
-                    </div>
-                    <div class="card-info">
-                        <span class="latin">Psychotria elata</span>
-                        <h3>The Hot Lips Plant</h3>
-                        <p>
-                            A tropical plant known for its
-                            unusual red, lip-shaped bracts.
-                        </p>
-                        <button class="details-button"
-                            data-name="The Hot Lips Plant"
-                            data-latin="Psychotria elata"
-                            data-description="This tropical plant is famous for its bright red bracts, which look like a pair of lips. The actual flowers are small and emerge between the bracts.">
-                            DISCOVER SPECIMEN ↗
-                        </button>
-                    </div>
-                </article>
+      <div class="elevator">
+        <div class="elevator-top">HOTEL IMPOSSIBLE · LIFT Nº 1</div>
+        <div class="elevator-display" id="floorDisplay">GROUND</div>
+        <div class="elevator-buttons">
+          <button data-floor="1">01</button>
+          <button data-floor="2">02</button>
+          <button data-floor="7">07</button>
+          <button data-floor="13">13</button>
+          <button data-floor="27">27</button>
+          <button data-floor="99">99</button>
+          <button data-floor="0" class="floor-zero">?</button>
+          <button data-floor="000" class="floor-secret">000</button>
+        </div>
+        <div class="elevator-result" id="elevatorResult">Awaiting destination...</div>
+      </div>
+    </section>
 
-            </div>
-        </section>
+    <!-- GUESTBOOK -->
+    <section class="guestbook-section" id="guestbook">
+      <div class="section-heading">
+        <p class="eyebrow">FOUND IN THE RECEPTION</p>
+        <h2>The guest <em>book.</em></h2>
+        <p>Some visitors left notes. Others left warnings.</p>
+      </div>
 
-        <!-- FEATURE -->
-        <section class="feature section">
-            <div class="feature-visual">
-                <span class="feature-stamp">FIELD DISCOVERY<br>NO. 007</span>
-                <div class="feature-symbol">❀</div>
-                <span class="feature-caption">THE ART OF BOTANICAL WONDER</span>
-            </div>
+      <div class="book">
+        <div class="book-spine"></div>
+        <div class="book-page">
+          <p class="book-label">THE GUEST REGISTER · VOL. I</p>
+          <h3>Notes from our visitors</h3>
+          <div class="guest-entry">
+            <span>14 OCTOBER 1921</span>
+            <p>"I checked in yesterday. The calendar says it is still yesterday."</p>
+            <small>— A. M.</small>
+          </div>
+          <div class="guest-entry">
+            <span>03 JUNE 1956</span>
+            <p>"The elevator took me to a floor that was not there. I liked it."</p>
+            <small>— THE BLUE GUEST</small>
+          </div>
+          <div class="guest-entry">
+            <span>UNKNOWN DATE</span>
+            <p>"If you find room 000, do not knock. It already knows you are here."</p>
+            <small>— NO SIGNATURE</small>
+          </div>
+          <button class="book-button" id="nextEntry">TURN THE PAGE →</button>
+        </div>
+      </div>
+    </section>
 
-            <div class="feature-text">
-                <span class="eyebrow">DID YOU KNOW?</span>
-                <h2>Plants have a world<br>of their <i>own.</i></h2>
-                <p>
-                    Some plants can close their leaves when touched.
-                    Others trap insects, survive in deserts or
-                    bloom only for a few hours.
-                </p>
-                <p>
-                    The natural world is full of astonishing
-                    adaptations. And we have only just begun
-                    to explore them.
-                </p>
-                <a href="#fieldnotes" class="text-button">READ THE FIELD NOTES ↗</a>
-            </div>
-        </section>
+    <!-- ARCHIVE -->
+    <section class="archive-section" id="secrets">
+      <div class="section-heading">
+        <p class="eyebrow">RESTRICTED ACCESS</p>
+        <h2>The impossible <em>archive.</em></h2>
+        <p>Facts, records and peculiar hotel traditions.</p>
+      </div>
 
-        <!-- GREENHOUSE -->
-        <section class="greenhouse section" id="greenhouse">
+      <div class="archive-grid">
+        <div class="archive-item">
+          <span>ARCHIVE 001</span>
+          <h3>The Missing Floor</h3>
+          <p>Architectural plans show 13 floors. The elevator has 14 buttons. Nobody knows why.</p>
+        </div>
+        <div class="archive-item">
+          <span>ARCHIVE 002</span>
+          <h3>The Clockmaker</h3>
+          <p>Every clock in the hotel is set to a different time. They all strike midnight together.</p>
+        </div>
+        <div class="archive-item">
+          <span>ARCHIVE 003</span>
+          <h3>The Room Service Rule</h3>
+          <p>Never order breakfast after midnight. The menu changes when nobody is looking.</p>
+        </div>
+        <div class="archive-item locked-item" id="lockedArchive">
+          <span>ARCHIVE 004 · CLASSIFIED</span>
+          <h3>???</h3>
+          <p>Find the five hidden symbols to reveal this record.</p>
+          <div class="archive-lock">🔒</div>
+        </div>
+      </div>
+      <p class="symbol-counter" id="symbolCounter">HIDDEN SYMBOLS FOUND: 0 / 5</p>
+    </section>
 
-            <div class="section-heading">
-                <div>
-                    <span class="eyebrow">YOUR PERSONAL COLLECTION</span>
-                    <h2>The little<br><i>greenhouse.</i></h2>
-                </div>
-                <p>
-                    Plant your own digital garden.
-                    Choose a seed and watch your collection grow.
-                </p>
-            </div>
-
-            <div class="greenhouse-panel">
-                <div class="greenhouse-top">
-                    <span>MY PRIVATE GREENHOUSE</span>
-                    <span id="plantCounter">0 / 8 PLANTS</span>
-                </div>
-
-                <div class="garden" id="garden">
-                    <div class="empty-message" id="emptyMessage">
-                        <span>✧</span>
-                        <p>Your garden is waiting...</p>
-                        <small>Choose a seed below to begin.</small>
-                    </div>
-                </div>
-
-                <div class="seed-area">
-                    <span class="eyebrow">SELECT A SEED</span>
-                    <div class="seed-buttons">
-                        <button class="seed-button" data-seed="🌻">🌻<small>SUNFLOWER</small></button>
-                        <button class="seed-button" data-seed="🌷">🌷<small>TULIP</small></button>
-                        <button class="seed-button" data-seed="🌵">🌵<small>CACTUS</small></button>
-                        <button class="seed-button" data-seed="🌸">🌸<small>CHERRY</small></button>
-                        <button class="seed-button" data-seed="🍄">🍄<small>MUSHROOM</small></button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FIELD NOTES -->
-        <section class="fieldnotes section" id="fieldnotes">
-
-            <div class="section-heading">
-                <div>
-                    <span class="eyebrow">THE RESEARCH JOURNAL</span>
-                    <h2>Notes from<br><i>the wild.</i></h2>
-                </div>
-                <p>
-                    Small observations about the strange,
-                    beautiful and fascinating world of plants.
-                </p>
-            </div>
-
-            <div class="notes-grid">
-                <article class="note">
-                    <span class="note-number">01 — MOVEMENT</span>
-                    <div class="note-icon">🌱</div>
-                    <h3>Plants can move.</h3>
-                    <p>
-                        The sensitive plant, Mimosa pudica,
-                        folds its leaves when touched.
-                        It can also react to vibrations.
-                    </p>
-                    <span class="note-date">A LITTLE BOTANICAL FACT</span>
-                </article>
-
-                <article class="note">
-                    <span class="note-number">02 — COMMUNICATION</span>
-                    <div class="note-icon">🍃</div>
-                    <h3>Invisible messages.</h3>
-                    <p>
-                        Some plants release chemical signals
-                        into the air when attacked by insects.
-                        These signals can affect nearby organisms.
-                    </p>
-                    <span class="note-date">A LITTLE BOTANICAL FACT</span>
-                </article>
-
-                <article class="note">
-                    <span class="note-number">03 — SURVIVAL</span>
-                    <div class="note-icon">🌵</div>
-                    <h3>Desert survivors.</h3>
-                    <p>
-                        Cacti have adaptations such as thick
-                        water-storing stems and spines that
-                        help reduce water loss.
-                    </p>
-                    <span class="note-date">A LITTLE BOTANICAL FACT</span>
-                </article>
-            </div>
-        </section>
-
-        <!-- QUIZ -->
-        <section class="quiz-section">
-            <span class="eyebrow">THE BOTANICAL TEST</span>
-            <h2>How much do you<br><i>really know?</i></h2>
-            <p>Six questions. One curious mind. Let's find out.</p>
-            <button class="primary-button" id="startQuiz">
-                START THE QUIZ ↗
-            </button>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
     <footer>
-        <div class="footer-symbol">✳</div>
-        <h2>THE SECRET GARDEN</h2>
-        <p>A little corner of botanical wonder.</p>
-        <div class="footer-bottom">
-            <span>BOTANICAL ARCHIVE · VOL. I</span>
-            <span>GROW WITH CURIOSITY ✳</span>
-        </div>
+      <div class="footer-mark">✦</div>
+      <h2>Thank you for staying.</h2>
+      <p>We hope you find your way back.</p>
+      <div class="footer-line"></div>
+      <span>HOTEL IMPOSSIBLE · EST. 1897 · LOCATION UNKNOWN</span>
+      <button id="footerSecret" class="footer-secret">·</button>
     </footer>
 
-    <!-- SPECIMEN MODAL -->
-    <div class="modal" id="specimenModal">
-        <div class="modal-content">
-            <button class="close-modal" id="closeSpecimen">×</button>
-            <span class="eyebrow">BOTANICAL SPECIMEN FILE</span>
-            <div class="modal-flower">✿</div>
-            <span class="latin" id="modalLatin"></span>
-            <h2 id="modalName"></h2>
-            <p id="modalDescription"></p>
-            <div class="modal-bottom">END OF SPECIMEN FILE · 001</div>
-        </div>
+  </main>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose">×</button>
+      <p class="eyebrow" id="modalEyebrow">ROOM Nº 013</p>
+      <div class="modal-symbol" id="modalSymbol">☾</div>
+      <h2 id="modalTitle">The Midnight Room</h2>
+      <p id="modalText"></p>
+      <div class="modal-extra" id="modalExtra"></div>
+      <button class="gold-button" id="modalAction">CLOSE THE DOOR</button>
     </div>
+  </div>
 
-    <!-- QUIZ MODAL -->
-    <div class="modal" id="quizModal">
-        <div class="modal-content quiz-content">
-            <button class="close-modal" id="closeQuiz">×</button>
-            <span class="eyebrow">BOTANICAL KNOWLEDGE TEST</span>
-            <div class="quiz-progress" id="quizProgress">QUESTION 1 / 6</div>
-            <h2 id="quizQuestion">Loading...</h2>
-            <div class="quiz-answers" id="quizAnswers"></div>
-            <p class="quiz-feedback" id="quizFeedback"></p>
-            <button class="primary-button" id="nextQuestion" hidden>NEXT QUESTION ↗</button>
-        </div>
-    </div>
+  <!-- SECRET MESSAGE -->
+  <div class="secret-message" id="secretMessage">
+    <span>✦ A MESSAGE FROM THE HOTEL ✦</span>
+    <p id="secretText">You found something.</p>
+    <button id="secretClose">UNDERSTOOD</button>
+  </div>
 
-    <!-- SECRET POPUP -->
-    <div class="secret-popup" id="secretPopup">
-        <span>✧</span>
-        <p id="secretText">You found a secret!</p>
-        <button id="closeSecret">CLOSE ×</button>
-    </div>
-
-    <div class="cursor-flower" id="cursorFlower">✿</div>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
-
-<h2>Easter Eggs</h2>
-<p>
- Klicke fünfmal auf das Logo.
- Klicke auf den Mond oben rechts.
- Klicke auf die grosse Blume im Feature-Bereich.
- Klicke auf das Sternsymbol ganz unten.
- Doppelklicke auf die Pflanze im Titelbild.
- Öffne die Browser-Konsole mit F12.</p>
 </html>
