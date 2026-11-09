@@ -1,0 +1,475 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Secret Garden | Botanical Archive</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="grain"></div>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <!-- INTRO -->
+    <div class="intro" id="intro">
+        <div class="intro-content">
+            <span>BOTANICAL ARCHIVE · EST. 1897</span>
+            <div class="intro-symbol">✳</div>
+            <h1>THE SECRET<br>GARDEN</h1>
+            <p>Somewhere between science and magic.</p>
+            <button id="enterGarden">ENTER THE GARDEN ↗</button>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <header class="topbar">
+        <a href="#home" class="logo" id="logo">
+            <span class="logo-icon">✳</span>
+            <span>THE SECRET GARDEN</span>
+        </a>
+
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="#archive">ARCHIVE</a>
+            <a href="#greenhouse">GREENHOUSE</a>
+            <a href="#fieldnotes">FIELD NOTES</a>
+        </nav>
+
+        <button class="moon-button" id="moonButton" title="Geheime Funktion">☾</button>
+    </header>
+
+    <!-- HERO -->
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="hero-left">
+                <div class="eyebrow">
+                    <span class="live-dot"></span>
+                    PRIVATE BOTANICAL COLLECTION
+                </div>
+
+                <h1>
+                    Where<br>
+                    <span>nature</span><br>
+                    keeps its<br>
+                    secrets.
+                </h1>
+
+                <p class="hero-description">
+                    A living archive of extraordinary plants,
+                    forgotten botanical discoveries and the
+                    beautiful mysteries of the natural world.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#archive" class="primary-button">
+                        EXPLORE THE ARCHIVE ↗
+                    </a>
+                    <a href="#greenhouse" class="text-button">
+                        VISIT GREENHOUSE
+                    </a>
+                </div>
+
+                <div class="hero-bottom">
+                    <span>VOL. I — THE LIVING COLLECTION</span>
+                    <span>51° 30' N · 00° 07' W</span>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="hero-frame">
+                    <div class="frame-label">FIG. 001 — THE UNKNOWN</div>
+
+                    <div class="hero-plant">
+                        <div class="plant-orbit orbit-one"></div>
+                        <div class="plant-orbit orbit-two"></div>
+                        <div class="plant-illustration">🌿</div>
+                        <span class="floating-leaf leaf-one">✦</span>
+                        <span class="floating-leaf leaf-two">❋</span>
+                        <span class="floating-leaf leaf-three">✧</span>
+                    </div>
+
+                    <div class="frame-bottom">
+                        <span>SPECIMEN NO. 001</span>
+                        <span>NOT YET IDENTIFIED</span>
+                    </div>
+                </div>
+
+                <div class="side-note">
+                    <span>01 / 04</span>
+                    <span>THE ART OF DISCOVERY</span>
+                </div>
+            </div>
+
+            <div class="vertical-text">GROW · DISCOVER · WONDER</div>
+
+        </section>
+
+        <!-- MARQUEE -->
+        <div class="marquee">
+            <div class="marquee-track">
+                <span>✳ EVERY LEAF HAS A STORY</span>
+                <span>✳ DISCOVER THE UNDISCOVERED</span>
+                <span>✳ NATURE IS NEVER ORDINARY</span>
+                <span>✳ EVERY LEAF HAS A STORY</span>
+                <span>✳ DISCOVER THE UNDISCOVERED</span>
+            </div>
+        </div>
+
+        <!-- ARCHIVE -->
+        <section class="archive section" id="archive">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">THE COLLECTION · 001—006</span>
+                    <h2>The botanical<br><i>archive.</i></h2>
+                </div>
+
+                <p>
+                    A collection of remarkable plants.
+                    Each specimen has its own personality,
+                    history and extraordinary abilities.
+                </p>
+            </div>
+
+            <div class="filter-bar">
+                <button class="filter active" data-filter="all">ALL SPECIMENS</button>
+                <button class="filter" data-filter="flower">FLOWERS</button>
+                <button class="filter" data-filter="rare">RARE PLANTS</button>
+                <button class="filter" data-filter="tree">TREES</button>
+            </div>
+
+            <div class="plant-grid">
+
+                <article class="plant-card" data-category="flower">
+                    <div class="card-image flower-image">
+                        <span class="specimen-number">NO. 001</span>
+                        <span class="plant-emoji">🌺</span>
+                        <span class="image-tag">TROPICAL</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="latin">Rafflesia arnoldii</span>
+                        <h3>The Giant Bloom</h3>
+                        <p>
+                            One of the world's largest individual flowers.
+                            It can grow to around one metre across.
+                        </p>
+                        <button class="details-button"
+                            data-name="The Giant Bloom"
+                            data-latin="Rafflesia arnoldii"
+                            data-description="The Rafflesia is famous for its enormous flower. It grows as a parasite on vines and has no ordinary leaves, stems or roots. Its flower can reach around one metre in diameter.">
+                            DISCOVER SPECIMEN ↗
+                        </button>
+                    </div>
+                </article>
+
+                <article class="plant-card" data-category="rare">
+                    <div class="card-image rare-image">
+                        <span class="specimen-number">NO. 002</span>
+                        <span class="plant-emoji">🌿</span>
+                        <span class="image-tag">CARNIVOROUS</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="latin">Nepenthes</span>
+                        <h3>The Pitcher Plant</h3>
+                        <p>
+                            A fascinating carnivorous plant with
+                            specially shaped pitcher traps.
+                        </p>
+                        <button class="details-button"
+                            data-name="The Pitcher Plant"
+                            data-latin="Nepenthes"
+                            data-description="Nepenthes plants produce modified leaves shaped like pitchers. Their slippery rims and digestive liquid help them capture and digest insects and other small animals.">
+                            DISCOVER SPECIMEN ↗
+                        </button>
+                    </div>
+                </article>
+
+                <article class="plant-card" data-category="flower">
+                    <div class="card-image night-image">
+                        <span class="specimen-number">NO. 003</span>
+                        <span class="plant-emoji">🌙</span>
+                        <span class="image-tag">NIGHT BLOOMING</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="latin">Epiphyllum oxypetalum</span>
+                        <h3>Queen of the Night</h3>
+                        <p>
+                            A spectacular cactus flower that opens
+                            at night and closes again by morning.
+                        </p>
+                        <button class="details-button"
+                            data-name="Queen of the Night"
+                            data-latin="Epiphyllum oxypetalum"
+                            data-description="This cactus produces large, fragrant white flowers that usually open after sunset. They are often short-lived and close by the following morning.">
+                            DISCOVER SPECIMEN ↗
+                        </button>
+                    </div>
+                </article>
+
+                <article class="plant-card" data-category="tree">
+                    <div class="card-image tree-image">
+                        <span class="specimen-number">NO. 004</span>
+                        <span class="plant-emoji">🌳</span>
+                        <span class="image-tag">ANCIENT</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="latin">Adansonia</span>
+                        <h3>The Baobab</h3>
+                        <p>
+                            A remarkable tree with an enormous trunk
+                            that can store large amounts of water.
+                        </p>
+                        <button class="details-button"
+                            data-name="The Baobab"
+                            data-latin="Adansonia"
+                            data-description="Baobab trees are iconic African trees with thick trunks. Some species can live for thousands of years. Their trunks can store water, helping them survive dry periods.">
+                            DISCOVER SPECIMEN ↗
+                        </button>
+                    </div>
+                </article>
+
+                <article class="plant-card" data-category="rare">
+                    <div class="card-image blue-image">
+                        <span class="specimen-number">NO. 005</span>
+                        <span class="plant-emoji">🪷</span>
+                        <span class="image-tag">AQUATIC</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="latin">Victoria amazonica</span>
+                        <h3>The Giant Water Lily</h3>
+                        <p>
+                            Its enormous floating leaves can
+                            reach several metres in diameter.
+                        </p>
+                        <button class="details-button"
+                            data-name="The Giant Water Lily"
+                            data-latin="Victoria amazonica"
+                            data-description="This giant water lily grows in Amazonian waters. Its circular floating leaves can become more than two metres wide, with raised edges and a strong supporting structure underneath.">
+                            DISCOVER SPECIMEN ↗
+                        </button>
+                    </div>
+                </article>
+
+                <article class="plant-card" data-category="flower">
+                    <div class="card-image red-image">
+                        <span class="specimen-number">NO. 006</span>
+                        <span class="plant-emoji">🌷</span>
+                        <span class="image-tag">UNUSUAL</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="latin">Psychotria elata</span>
+                        <h3>The Hot Lips Plant</h3>
+                        <p>
+                            A tropical plant known for its
+                            unusual red, lip-shaped bracts.
+                        </p>
+                        <button class="details-button"
+                            data-name="The Hot Lips Plant"
+                            data-latin="Psychotria elata"
+                            data-description="This tropical plant is famous for its bright red bracts, which look like a pair of lips. The actual flowers are small and emerge between the bracts.">
+                            DISCOVER SPECIMEN ↗
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- FEATURE -->
+        <section class="feature section">
+            <div class="feature-visual">
+                <span class="feature-stamp">FIELD DISCOVERY<br>NO. 007</span>
+                <div class="feature-symbol">❀</div>
+                <span class="feature-caption">THE ART OF BOTANICAL WONDER</span>
+            </div>
+
+            <div class="feature-text">
+                <span class="eyebrow">DID YOU KNOW?</span>
+                <h2>Plants have a world<br>of their <i>own.</i></h2>
+                <p>
+                    Some plants can close their leaves when touched.
+                    Others trap insects, survive in deserts or
+                    bloom only for a few hours.
+                </p>
+                <p>
+                    The natural world is full of astonishing
+                    adaptations. And we have only just begun
+                    to explore them.
+                </p>
+                <a href="#fieldnotes" class="text-button">READ THE FIELD NOTES ↗</a>
+            </div>
+        </section>
+
+        <!-- GREENHOUSE -->
+        <section class="greenhouse section" id="greenhouse">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">YOUR PERSONAL COLLECTION</span>
+                    <h2>The little<br><i>greenhouse.</i></h2>
+                </div>
+                <p>
+                    Plant your own digital garden.
+                    Choose a seed and watch your collection grow.
+                </p>
+            </div>
+
+            <div class="greenhouse-panel">
+                <div class="greenhouse-top">
+                    <span>MY PRIVATE GREENHOUSE</span>
+                    <span id="plantCounter">0 / 8 PLANTS</span>
+                </div>
+
+                <div class="garden" id="garden">
+                    <div class="empty-message" id="emptyMessage">
+                        <span>✧</span>
+                        <p>Your garden is waiting...</p>
+                        <small>Choose a seed below to begin.</small>
+                    </div>
+                </div>
+
+                <div class="seed-area">
+                    <span class="eyebrow">SELECT A SEED</span>
+                    <div class="seed-buttons">
+                        <button class="seed-button" data-seed="🌻">🌻<small>SUNFLOWER</small></button>
+                        <button class="seed-button" data-seed="🌷">🌷<small>TULIP</small></button>
+                        <button class="seed-button" data-seed="🌵">🌵<small>CACTUS</small></button>
+                        <button class="seed-button" data-seed="🌸">🌸<small>CHERRY</small></button>
+                        <button class="seed-button" data-seed="🍄">🍄<small>MUSHROOM</small></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FIELD NOTES -->
+        <section class="fieldnotes section" id="fieldnotes">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">THE RESEARCH JOURNAL</span>
+                    <h2>Notes from<br><i>the wild.</i></h2>
+                </div>
+                <p>
+                    Small observations about the strange,
+                    beautiful and fascinating world of plants.
+                </p>
+            </div>
+
+            <div class="notes-grid">
+                <article class="note">
+                    <span class="note-number">01 — MOVEMENT</span>
+                    <div class="note-icon">🌱</div>
+                    <h3>Plants can move.</h3>
+                    <p>
+                        The sensitive plant, Mimosa pudica,
+                        folds its leaves when touched.
+                        It can also react to vibrations.
+                    </p>
+                    <span class="note-date">A LITTLE BOTANICAL FACT</span>
+                </article>
+
+                <article class="note">
+                    <span class="note-number">02 — COMMUNICATION</span>
+                    <div class="note-icon">🍃</div>
+                    <h3>Invisible messages.</h3>
+                    <p>
+                        Some plants release chemical signals
+                        into the air when attacked by insects.
+                        These signals can affect nearby organisms.
+                    </p>
+                    <span class="note-date">A LITTLE BOTANICAL FACT</span>
+                </article>
+
+                <article class="note">
+                    <span class="note-number">03 — SURVIVAL</span>
+                    <div class="note-icon">🌵</div>
+                    <h3>Desert survivors.</h3>
+                    <p>
+                        Cacti have adaptations such as thick
+                        water-storing stems and spines that
+                        help reduce water loss.
+                    </p>
+                    <span class="note-date">A LITTLE BOTANICAL FACT</span>
+                </article>
+            </div>
+        </section>
+
+        <!-- QUIZ -->
+        <section class="quiz-section">
+            <span class="eyebrow">THE BOTANICAL TEST</span>
+            <h2>How much do you<br><i>really know?</i></h2>
+            <p>Six questions. One curious mind. Let's find out.</p>
+            <button class="primary-button" id="startQuiz">
+                START THE QUIZ ↗
+            </button>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-symbol">✳</div>
+        <h2>THE SECRET GARDEN</h2>
+        <p>A little corner of botanical wonder.</p>
+        <div class="footer-bottom">
+            <span>BOTANICAL ARCHIVE · VOL. I</span>
+            <span>GROW WITH CURIOSITY ✳</span>
+        </div>
+    </footer>
+
+    <!-- SPECIMEN MODAL -->
+    <div class="modal" id="specimenModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeSpecimen">×</button>
+            <span class="eyebrow">BOTANICAL SPECIMEN FILE</span>
+            <div class="modal-flower">✿</div>
+            <span class="latin" id="modalLatin"></span>
+            <h2 id="modalName"></h2>
+            <p id="modalDescription"></p>
+            <div class="modal-bottom">END OF SPECIMEN FILE · 001</div>
+        </div>
+    </div>
+
+    <!-- QUIZ MODAL -->
+    <div class="modal" id="quizModal">
+        <div class="modal-content quiz-content">
+            <button class="close-modal" id="closeQuiz">×</button>
+            <span class="eyebrow">BOTANICAL KNOWLEDGE TEST</span>
+            <div class="quiz-progress" id="quizProgress">QUESTION 1 / 6</div>
+            <h2 id="quizQuestion">Loading...</h2>
+            <div class="quiz-answers" id="quizAnswers"></div>
+            <p class="quiz-feedback" id="quizFeedback"></p>
+            <button class="primary-button" id="nextQuestion" hidden>NEXT QUESTION ↗</button>
+        </div>
+    </div>
+
+    <!-- SECRET POPUP -->
+    <div class="secret-popup" id="secretPopup">
+        <span>✧</span>
+        <p id="secretText">You found a secret!</p>
+        <button id="closeSecret">CLOSE ×</button>
+    </div>
+
+    <div class="cursor-flower" id="cursorFlower">✿</div>
+
+    <script src="script.js"></script>
+</body>
+
+<h2>Easter Eggs</h2>
+<p>
+ Klicke fünfmal auf das Logo.
+ Klicke auf den Mond oben rechts.
+ Klicke auf die grosse Blume im Feature-Bereich.
+ Klicke auf das Sternsymbol ganz unten.
+ Doppelklicke auf die Pflanze im Titelbild.
+ Öffne die Browser-Konsole mit F12.</p>
+</html>
